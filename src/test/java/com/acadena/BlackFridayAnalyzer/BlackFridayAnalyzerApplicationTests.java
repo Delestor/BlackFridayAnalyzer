@@ -1,10 +1,10 @@
-package com.acadena.BlackFridayAnalizer;
+package com.acadena.BlackFridayAnalyzer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BlackFridayAnalizerApplicationTests {
+class BlackFridayAnalyzerApplicationTests {
 
 	@Test
 	void contextLoads() {

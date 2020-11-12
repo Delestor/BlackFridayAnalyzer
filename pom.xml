@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.acadena</groupId>
-	<artifactId>BlackFridayAnalizer</artifactId>
+	<artifactId>BlackFridayAnalyzer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>BlackFridayAnalizer</name>
-	<description>Black Friday Product Analizer</description>
+	<name>BlackFridayAnalyzer</name>
+	<description>Black Friday Product Analyzer</description>
 
 	<properties>
 		<java.version>11</java.version>

@@ -31,7 +31,8 @@ public class ShopTests {
         }
 
         assert price != null;
-        assertEquals(15.03, price.getPrice(), 0.0);
+        assertEquals(0.0, price.getPrice(), 0.0);
+        assertEquals("€", price.getCurrency());
     }
 
     @Test

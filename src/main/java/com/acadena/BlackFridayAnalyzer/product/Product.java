@@ -9,14 +9,14 @@ import java.util.Objects;
 public class Product {
     private @Id @GeneratedValue Long id;
     private String name;
-    private double price;
+    private Price price;
 
     public Product(String name){
         this.name = name;
-        this.price = 0.0;
+        price = new Price();
     }
 
-    public Product(String name, double price){
+    public Product(String name, Price price){
         this.name = name;
         this.price = price;
     }
@@ -33,11 +33,11 @@ public class Product {
         this.name = name;
     }
 
-    public double getPrice() {
+    public Price getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Price price) {
         this.price = price;
     }
 

@@ -2,7 +2,6 @@ package shop;
 
 import com.acadena.BlackFridayAnalyzer.product.Price;
 import com.acadena.BlackFridayAnalyzer.product.Product;
-import com.acadena.BlackFridayAnalyzer.product.ProductImpl;
 import com.acadena.BlackFridayAnalyzer.shop.OculusShop;
 import com.acadena.BlackFridayAnalyzer.shop.Shop;
 import org.junit.Before;
@@ -23,7 +22,7 @@ public class ShopTests {
 
     @Test
     public void testcheckProductPrice(){
-        product = new ProductImpl("test");
+        product = new Product("test");
         Price price = null;
         try {
             price = shop.checkProductPrice(product);
@@ -37,7 +36,7 @@ public class ShopTests {
 
     @Test
     public void productNotFound(){
-        product = new ProductImpl("testException");
+        product = new Product("testException");
         boolean isError = false;
         try {
             shop.checkProductPrice(product);

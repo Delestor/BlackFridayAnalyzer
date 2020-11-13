@@ -4,6 +4,8 @@ public class Price {
     double price = 15.03;
     String currency = "€";
 
+
+
     public double getPrice() {
         return price;
     }

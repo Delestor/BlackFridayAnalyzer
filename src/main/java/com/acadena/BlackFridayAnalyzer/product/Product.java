@@ -9,9 +9,16 @@ import java.util.Objects;
 public class Product {
     private @Id @GeneratedValue Long id;
     private String name;
+    private double price;
 
     public Product(String name){
         this.name = name;
+        this.price = 0.0;
+    }
+
+    public Product(String name, double price){
+        this.name = name;
+        this.price = price;
     }
 
     public Long getId() {
@@ -24,6 +31,14 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override

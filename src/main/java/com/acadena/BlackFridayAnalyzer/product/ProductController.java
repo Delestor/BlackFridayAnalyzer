@@ -27,6 +27,8 @@ public class ProductController {
     Product oneByName(@PathVariable String name){
         Product product = null;
 
+        //product = productRepository.findByName(name);
+
         List<Product> products = all();
         for (Product p:
              products) {

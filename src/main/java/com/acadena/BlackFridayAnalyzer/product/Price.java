@@ -1,12 +1,17 @@
 package com.acadena.BlackFridayAnalyzer.product;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
 @Table(name = "prices")
 public class Price {
+    private @Id
+    @GeneratedValue
+    Long id;
     double price = 0.0;
     String currency = "€";
 
@@ -15,6 +20,14 @@ public class Price {
     public Price(double price, String currency) {
         this.price = price;
         this.currency = currency;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public double getPrice() {
@@ -38,11 +51,11 @@ public class Price {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Price price1 = (Price) o;
-        return Double.compare(price1.price, price) == 0 && Objects.equals(currency, price1.currency);
+        return Double.compare(price1.price, price) == 0 && Objects.equals(id, price1.id) && Objects.equals(currency, price1.currency);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(price, currency);
+        return Objects.hash(id, price, currency);
     }
 }

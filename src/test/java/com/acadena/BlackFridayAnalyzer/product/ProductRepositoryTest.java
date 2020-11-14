@@ -17,4 +17,6 @@ public class ProductRepositoryTest {
         assertThat(savedProduct.getId()).isGreaterThan(0);
     }
 
+    //TODO: https://www.codejava.net/frameworks/spring-boot/junit-tests-for-spring-data-jpa
+
 }

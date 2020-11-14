@@ -9,7 +9,7 @@ public class Product {
     private @Id @GeneratedValue Long id;
     private String name;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private Price price;
     //TODO: La clase Producto podria guardar una lista con todos los precios que ha ido teniendo en el tiempo,
     //estos precios podrían guardar la fecha y la tienda.

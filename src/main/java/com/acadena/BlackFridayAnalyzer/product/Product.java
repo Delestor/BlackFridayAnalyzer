@@ -1,15 +1,18 @@
 package com.acadena.BlackFridayAnalyzer.product;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "products")
 public class Product {
     private @Id @GeneratedValue Long id;
     private String name;
+
+    @OneToOne
     private Price price;
+    //TODO: La clase Producto podria guardar una lista con todos los precios que ha ido teniendo en el tiempo,
+    //estos precios podrían guardar la fecha y la tienda.
 
     public Product(String name){
         this.name = name;

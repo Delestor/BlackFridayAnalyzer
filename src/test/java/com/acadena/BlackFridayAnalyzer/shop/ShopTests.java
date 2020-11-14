@@ -1,13 +1,12 @@
-package shop;
+package com.acadena.BlackFridayAnalyzer.shop;
 
 import com.acadena.BlackFridayAnalyzer.product.Price;
 import com.acadena.BlackFridayAnalyzer.product.Product;
-import com.acadena.BlackFridayAnalyzer.shop.OculusShop;
-import com.acadena.BlackFridayAnalyzer.shop.Shop;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ShopTests {
 

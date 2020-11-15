@@ -1,17 +1,12 @@
 package com.acadena.BlackFridayAnalyzer.product;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "prices")
 public class Price {
-    private @Id
-    @GeneratedValue
-    Long id;
+    private @Id @GeneratedValue(strategy= GenerationType.IDENTITY) Long id;
     double price = 0.0;
     String currency = "€";
 

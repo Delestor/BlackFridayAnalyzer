@@ -15,6 +15,10 @@ public class Product {
     //TODO: La clase Producto podria guardar una lista con todos los precios que ha ido teniendo en el tiempo,
     //estos precios podrían guardar la fecha y la tienda.
 
+    public Product(){
+
+    }
+
     public Product(String name){
         this.name = name;
         price = new Price();

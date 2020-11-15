@@ -23,27 +23,26 @@ public class ProductController {
         return productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
     }
 
-    @GetMapping("/product/{name}")
+    @GetMapping("/productName/{name}")
     Product oneByName(@PathVariable String name){
         Product product = null;
-
-        //product = productRepository.findByName(name);
-
-        List<Product> products = all();
-        for (Product p:
-             products) {
-            if(p.getName().equalsIgnoreCase(name))
-                product = p;
-        }
-
+        product = productRepository.findByName(name);
         if(product == null)
             throw new ProductNotFoundException(name);
-
         return product;
     }
 
     @PostMapping("/products")
     Product newProduct(@RequestBody Product product){
         return productRepository.save(product);
+    }
+
+    @DeleteMapping("/product/{id}")
+    void deleteProduct(@PathVariable Long id){
+        try{
+            productRepository.deleteById(id);
+        }catch (Exception ex){
+            throw new ProductNotFoundException(id);
+        }
     }
 }

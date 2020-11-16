@@ -1,15 +1,24 @@
 package com.acadena.BlackFridayAnalyzer.product;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DataJpaTest
 public class ProductRepositoryTest {
+
+    //TODO: Mock MVC Test https://www.baeldung.com/spring-mvc-test-exceptions
+
+
 
     @Autowired
     private ProductRepository repo;
@@ -27,9 +36,7 @@ public class ProductRepositoryTest {
     @Test
     public void testTwoEqualsProducts(){
         repo.save(globalProduct);
-        repo.save(new Product(productName, new Price(3, "€")));
-        List<Product> products = repo.findAll();
-        assertThat(products).size().isEqualTo(2);
+        assertThrows(DataIntegrityViolationException.class, () -> repo.save(new Product(productName, new Price(3, "€"))));
     }
 
     @Test

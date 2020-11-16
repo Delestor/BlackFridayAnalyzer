@@ -7,7 +7,7 @@ import java.util.Objects;
 @Table(name = "products")
 public class Product {
     private @Id @GeneratedValue(strategy=GenerationType.IDENTITY) Long id;
-    private String name;
+    private @Column(unique = true) String name;
 
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="PRICES_ID", unique= true, nullable=true, insertable=true, updatable=true)

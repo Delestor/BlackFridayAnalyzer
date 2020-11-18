@@ -8,14 +8,14 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class ShopTests {
+public class ShopManagerTests {
 
-    private Shop shop;
+    private ShopManager shopManager;
     private Product product;
 
     @Before
     public void setUp(){
-        shop = new OculusShop();
+        shopManager = new OculusShopManager();
 
     }
 
@@ -24,7 +24,7 @@ public class ShopTests {
         product = new Product("test");
         Price price = null;
         try {
-            price = shop.checkProductPrice(product);
+            price = shopManager.checkProductPrice(product);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,7 +39,7 @@ public class ShopTests {
         product = new Product("testException");
         boolean isError = false;
         try {
-            shop.checkProductPrice(product);
+            shopManager.checkProductPrice(product);
         } catch (Exception e) {
             isError = true;
         }

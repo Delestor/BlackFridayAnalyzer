@@ -1,5 +1,6 @@
 package com.acadena.BlackFridayAnalyzer.product;
 
+import com.acadena.BlackFridayAnalyzer.shop.Shop;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;

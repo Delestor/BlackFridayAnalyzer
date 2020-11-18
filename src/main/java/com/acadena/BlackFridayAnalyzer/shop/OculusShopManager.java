@@ -6,7 +6,7 @@ import com.acadena.BlackFridayAnalyzer.product.ProductRepository;
 import com.acadena.BlackFridayAnalyzer.product.exception.ProductNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class OculusShop implements Shop{
+public class OculusShopManager implements ShopManager {
     @Autowired
     ProductRepository productRepository;
 

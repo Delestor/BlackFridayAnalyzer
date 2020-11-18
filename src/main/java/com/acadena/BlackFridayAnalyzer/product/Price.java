@@ -1,14 +1,22 @@
 package com.acadena.BlackFridayAnalyzer.product;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "prices")
 public class Price {
     private @Id @GeneratedValue(strategy= GenerationType.IDENTITY) Long id;
-    double price = 0.0;
-    String currency = "€";
+    private double price = 0.0;
+    private String currency = "€";
+
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "date")
+    private Date date;
 
     public Price(){}
 
@@ -39,6 +47,14 @@ public class Price {
 
     public void setCurrency(String currency) {
         this.currency = currency;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override

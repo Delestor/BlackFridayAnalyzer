@@ -8,9 +8,11 @@ import java.util.List;
 @RestController
 public class ProductController {
     private final ProductRepository productRepository;
+    private final PriceRepository priceRepository;
 
-    public ProductController(ProductRepository productRepository) {
+    public ProductController(ProductRepository productRepository, PriceRepository priceRepository) {
         this.productRepository = productRepository;
+        this.priceRepository = priceRepository;
     }
 
     @GetMapping("/products")
@@ -35,6 +37,25 @@ public class ProductController {
     @PostMapping("/products")
     Product newProduct(@RequestBody Product product){
         return productRepository.save(product);
+    }
+
+    @PostMapping("/productPrice/{id}")
+    Product addPrice(@PathVariable Long id, @RequestBody Price price){
+        Product product = null;
+
+        //TODO: Solve recursive JSON data:
+        //https://medium.com/@udith.indrakantha/issue-related-with-infinite-recursive-fetching-of-data-from-relationships-between-entity-classes-ffc5fac6c816
+
+        try{
+            product = this.one(id);
+            //product.getPrices().add(price);
+            price.setProduct(product);
+            priceRepository.save(price);
+            //productRepository.save(product);
+        }catch (Exception ex){
+            throw new ProductNotFoundException(id);
+        }
+        return product;
     }
 
     @DeleteMapping("/product/{id}")

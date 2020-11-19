@@ -14,6 +14,6 @@ public class OculusShopManager implements ShopManager {
     public Price checkProductPrice(Product product) throws ProductNotFoundException{
         Product product1 = productRepository.findById(product.getId()).orElseThrow(() -> new ProductNotFoundException(product.getId()));
 
-        return product1.getPrice();
+        return new Price();
     }
 }

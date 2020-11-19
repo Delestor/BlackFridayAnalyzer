@@ -1,17 +1,19 @@
 package com.acadena.BlackFridayAnalyzer.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
-@Table(name = "products")
+@Table(name = "product")
 public class Product {
     private @Id @GeneratedValue(strategy=GenerationType.IDENTITY) Long id;
     private @Column(unique = true) String name;
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="PRICES_ID", unique= true, nullable=true, insertable=true, updatable=true)
-    private Price price;
+    @OneToMany(mappedBy = "product")
+    private Set<Price> prices;
     //TODO: La clase Producto podria guardar una lista con todos los precios que ha ido teniendo en el tiempo,
     //estos precios podrían guardar la fecha y la tienda.
 
@@ -21,12 +23,12 @@ public class Product {
 
     public Product(String name){
         this.name = name;
-        price = new Price();
+        prices.add(new Price());
     }
 
     public Product(String name, Price price){
         this.name = name;
-        this.price = price;
+        this.prices.add(price);
     }
 
     public Long getId() {
@@ -41,12 +43,12 @@ public class Product {
         this.name = name;
     }
 
-    public Price getPrice() {
-        return price;
+    public Set<Price> getPrices() {
+        return prices;
     }
 
-    public void setPrice(Price price) {
-        this.price = price;
+    public void setPrices(Set<Price> prices) {
+        this.prices = prices;
     }
 
     @Override

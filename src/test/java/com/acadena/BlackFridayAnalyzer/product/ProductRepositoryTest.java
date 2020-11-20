@@ -21,8 +21,7 @@ public class ProductRepositoryTest {
     private ProductRepository repo;
 
     private final String productName = "CocaCola";
-    private final Price globalPrice = new Price(3, "€");
-    private final Product globalProduct = new Product(productName, globalPrice);
+    private final Product globalProduct = new Product(productName);
 
     @Test
     public void testCreateProduct(){
@@ -33,7 +32,7 @@ public class ProductRepositoryTest {
     @Test
     public void testTwoEqualsProducts(){
         repo.save(globalProduct);
-        assertThrows(DataIntegrityViolationException.class, () -> repo.save(new Product(productName, new Price(3, "€"))));
+        assertThrows(DataIntegrityViolationException.class, () -> repo.save(new Product(productName)));
     }
 
     @Test

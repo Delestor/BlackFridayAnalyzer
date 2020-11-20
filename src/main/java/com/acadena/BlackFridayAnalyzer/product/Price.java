@@ -26,6 +26,11 @@ public class Price {
     @JsonBackReference
     private Product product;
 
+    @ManyToOne()
+    @JoinColumn(name="shop_id", nullable = false)
+    @JsonBackReference
+    private Shop shop;
+
     public Price(){}
 
     public Price(double price, String currency) {

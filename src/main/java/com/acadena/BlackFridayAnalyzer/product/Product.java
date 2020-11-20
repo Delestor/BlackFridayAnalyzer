@@ -24,12 +24,6 @@ public class Product {
 
     public Product(String name){
         this.name = name;
-        prices.add(new Price());
-    }
-
-    public Product(String name, Price price){
-        this.name = name;
-        this.prices.add(price);
     }
 
     public Long getId() {

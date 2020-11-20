@@ -1,6 +1,6 @@
 package com.acadena.BlackFridayAnalyzer.shop;
 
-import com.acadena.BlackFridayAnalyzer.product.Price;
+import com.acadena.BlackFridayAnalyzer.price.Price;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;

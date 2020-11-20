@@ -1,6 +1,6 @@
 package com.acadena.BlackFridayAnalyzer.product;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.acadena.BlackFridayAnalyzer.price.Price;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;

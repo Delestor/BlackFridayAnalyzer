@@ -1,8 +1,8 @@
-package com.acadena.BlackFridayAnalyzer.product;
+package com.acadena.BlackFridayAnalyzer.price;
 
+import com.acadena.BlackFridayAnalyzer.product.Product;
 import com.acadena.BlackFridayAnalyzer.shop.Shop;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;

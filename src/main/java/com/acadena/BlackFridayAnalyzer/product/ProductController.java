@@ -1,5 +1,7 @@
 package com.acadena.BlackFridayAnalyzer.product;
 
+import com.acadena.BlackFridayAnalyzer.price.Price;
+import com.acadena.BlackFridayAnalyzer.price.PriceRepository;
 import com.acadena.BlackFridayAnalyzer.product.exception.ProductNotFoundException;
 import org.springframework.web.bind.annotation.*;
 

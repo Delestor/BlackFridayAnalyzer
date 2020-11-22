@@ -15,10 +15,9 @@ public class Shop {
     @GeneratedValue(strategy= GenerationType.IDENTITY) Long id;
     private @Column(unique = true) String name;
 
-    @OneToMany(mappedBy = "shop")
-    @JsonManagedReference
-    private Set<Price> prices;
-
+/*TODO: Relation between Store and Prices,
+    try to understand @JsonManagedReference and @JsonBackReference value.
+*/
     public Shop(){
 
     }
@@ -43,24 +42,17 @@ public class Shop {
         this.name = name;
     }
 
-    public Set<Price> getPrices() {
-        return prices;
-    }
-
-    public void setPrices(Set<Price> prices) {
-        this.prices = prices;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Shop shop = (Shop) o;
-        return Objects.equals(id, shop.id) && Objects.equals(name, shop.name) && Objects.equals(prices, shop.prices);
+        return Objects.equals(id, shop.id) && Objects.equals(name, shop.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, prices);
+        return Objects.hash(id, name);
     }
 }

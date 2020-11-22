@@ -2,6 +2,7 @@ package com.acadena.BlackFridayAnalyzer.product;
 
 import com.acadena.BlackFridayAnalyzer.price.Price;
 import com.acadena.BlackFridayAnalyzer.price.PriceRepository;
+import com.acadena.BlackFridayAnalyzer.price.exception.PriceException;
 import com.acadena.BlackFridayAnalyzer.product.exception.ProductNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,18 +45,14 @@ public class ProductController {
     @PostMapping("/productPrice/{id}")
     Product addPrice(@PathVariable Long id, @RequestBody Price price){
         Product product = null;
-
-        //TODO: Solve recursive JSON data:
-        //https://medium.com/@udith.indrakantha/issue-related-with-infinite-recursive-fetching-of-data-from-relationships-between-entity-classes-ffc5fac6c816
-
         try{
             product = this.one(id);
-            //product.getPrices().add(price);
             price.setProduct(product);
             priceRepository.save(price);
-            //productRepository.save(product);
-        }catch (Exception ex){
+        }catch (ProductNotFoundException ex){
             throw new ProductNotFoundException(id);
+        }catch (Exception ex){
+            throw new PriceException();
         }
         return product;
     }

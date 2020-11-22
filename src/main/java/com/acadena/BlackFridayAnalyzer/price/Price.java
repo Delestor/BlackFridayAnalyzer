@@ -26,10 +26,10 @@ public class Price {
     @JsonBackReference
     private Product product;
 
-    @ManyToOne()
-    @JoinColumn(name="shop_id", nullable = false)
-    @JsonBackReference
-    private Shop shop;
+//    @ManyToOne()
+//    @JoinColumn(name="shop_id", nullable = false)
+//    @JsonBackReference(value = "shop_price_reference")
+//    private Shop shop;
 
     public Price(){}
 

@@ -1,15 +1,11 @@
-package com.acadena.BlackFridayAnalyzer.shop;
-
-import com.acadena.BlackFridayAnalyzer.price.Price;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+package com.acadena.BlackFridayAnalyzer.store;
 
 import javax.persistence.*;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name="shop")
-public class Shop {
+public class Store {
 
     private @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY) Long id;
@@ -18,11 +14,11 @@ public class Shop {
 /*TODO: Relation between Store and Prices,
     try to understand @JsonManagedReference and @JsonBackReference value.
 */
-    public Shop(){
+    public Store(){
 
     }
 
-    public Shop(String name) {
+    public Store(String name) {
         this.name = name;
     }
 
@@ -47,8 +43,8 @@ public class Shop {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Shop shop = (Shop) o;
-        return Objects.equals(id, shop.id) && Objects.equals(name, shop.name);
+        Store store = (Store) o;
+        return Objects.equals(id, store.id) && Objects.equals(name, store.name);
     }
 
     @Override

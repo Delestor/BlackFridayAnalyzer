@@ -1,4 +1,4 @@
-package com.acadena.BlackFridayAnalyzer.shop;
+package com.acadena.BlackFridayAnalyzer.store;
 
 import com.acadena.BlackFridayAnalyzer.price.Price;
 import com.acadena.BlackFridayAnalyzer.product.Product;
@@ -6,7 +6,7 @@ import com.acadena.BlackFridayAnalyzer.product.ProductRepository;
 import com.acadena.BlackFridayAnalyzer.product.exception.ProductNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class OculusShopManager implements ShopManager {
+public class OculusStoreManager implements StoreManager {
     @Autowired
     ProductRepository productRepository;
 

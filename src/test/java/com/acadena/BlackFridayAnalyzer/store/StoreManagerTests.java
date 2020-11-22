@@ -1,4 +1,4 @@
-package com.acadena.BlackFridayAnalyzer.shop;
+package com.acadena.BlackFridayAnalyzer.store;
 
 import com.acadena.BlackFridayAnalyzer.price.Price;
 import com.acadena.BlackFridayAnalyzer.product.Product;
@@ -8,14 +8,14 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class ShopManagerTests {
+public class StoreManagerTests {
 
-    private ShopManager shopManager;
+    private StoreManager storeManager;
     private Product product;
 
     @Before
     public void setUp(){
-        shopManager = new OculusShopManager();
+        storeManager = new OculusStoreManager();
 
     }
 
@@ -24,7 +24,7 @@ public class ShopManagerTests {
         product = new Product("test");
         Price price = null;
         try {
-            price = shopManager.checkProductPrice(product);
+            price = storeManager.checkProductPrice(product);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,7 +39,7 @@ public class ShopManagerTests {
         product = new Product("testException");
         boolean isError = false;
         try {
-            shopManager.checkProductPrice(product);
+            storeManager.checkProductPrice(product);
         } catch (Exception e) {
             isError = true;
         }

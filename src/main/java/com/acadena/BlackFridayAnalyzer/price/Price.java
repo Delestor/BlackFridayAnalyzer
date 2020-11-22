@@ -1,7 +1,6 @@
 package com.acadena.BlackFridayAnalyzer.price;
 
 import com.acadena.BlackFridayAnalyzer.product.Product;
-import com.acadena.BlackFridayAnalyzer.shop.Shop;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -27,9 +26,9 @@ public class Price {
     private Product product;
 
 //    @ManyToOne()
-//    @JoinColumn(name="shop_id", nullable = false)
+//    @JoinColumn(name="store_id", nullable = false)
 //    @JsonBackReference(value = "shop_price_reference")
-//    private Shop shop;
+//    private Store store;
 
     public Price(){}
 

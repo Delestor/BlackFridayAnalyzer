@@ -1,5 +1,6 @@
 package com.acadena.BlackFridayAnalyzer.utils;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -11,10 +12,15 @@ import java.net.URISyntaxException;
 
 @Component
 public class BrowserLauncher {
+
+    @Value("${acadena.blackfridayanalyzer.debugmode}")
+    private boolean isDebugMode;
+
     @EventListener({ApplicationReadyEvent.class})
     void applicationReadyEvent() {
         System.out.println("Application started ... launching browser now");
-        browse("http://localhost:8080/h2");
+        if(isDebugMode)
+            browse("http://localhost:8080/h2");
     }
 
     public static void browse(String url) {

@@ -15,8 +15,6 @@ public class Product {
     @OneToMany(mappedBy = "product")
     @JsonManagedReference
     private Set<Price> prices;
-    //TODO: La clase Producto podria guardar una lista con todos los precios que ha ido teniendo en el tiempo,
-    //estos precios podrían guardar la fecha y la tienda.
 
     public Product(){
 

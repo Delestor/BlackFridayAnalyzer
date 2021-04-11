@@ -18,7 +18,7 @@ public class ProductController {
         this.priceRepository = priceRepository;
     }
 
-    @GetMapping("/products")
+    @GetMapping("/product/all")
     List<Product> all(){
         return productRepository.findAll();
     }
@@ -37,7 +37,7 @@ public class ProductController {
         return product;
     }
 
-    @PostMapping("/products")
+    @PostMapping("/product")
     Product newProduct(@RequestBody Product product){
         return productRepository.save(product);
     }

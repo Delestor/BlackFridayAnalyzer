@@ -42,6 +42,11 @@ public class ProductController {
         return productRepository.save(product);
     }
 
+    @PutMapping("/product/update")
+    Product updateProduct(@RequestBody Product product){
+        return productRepository.save(product);
+    }
+
     @PostMapping("/productPrice/{id}")
     Product addPrice(@PathVariable Long id, @RequestBody Price price){
         Product product = null;

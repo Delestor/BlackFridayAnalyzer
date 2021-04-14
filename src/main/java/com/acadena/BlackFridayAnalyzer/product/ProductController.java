@@ -47,7 +47,7 @@ public class ProductController {
         return productRepository.save(product);
     }
 
-    @PostMapping("/productPrice/{id}")
+    @PostMapping("/product/addPrice/{id}")
     Product addPrice(@PathVariable Long id, @RequestBody Price price){
         Product product = null;
         try{
